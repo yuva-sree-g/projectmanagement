@@ -5,9 +5,9 @@ A modern, full-stack project management application built with FastAPI, React, a
 ## 📋 Application Deliverables
 
 ### ✅ Live Application URL
-- **Frontend**: https://project-management-dashboard-dno2.vercel.app/
-- **Backend**: https://projectmanagementdashboard.onrender.com
-- **API Documentation**: https://projectmanagementdashboard.onrender.com/docs
+- **Frontend**: https://projectmanagementdashboard-flax.vercel.app
+- **Backend**: https://projectmanagement-riai.onrender.com
+- **API Documentation**: https://projectmanagement-riai.onrender.com/docs
 
 ### ✅ GitHub Repository
 - **Repository**: Complete source code with clear documentation
@@ -17,7 +17,7 @@ A modern, full-stack project management application built with FastAPI, React, a
 ### ✅ Demo Video
 - **Duration**: 5-minute walkthrough of key features
 - **Content**: User registration, project creation, task management, time tracking, dashboard analytics
-- **Link**: [To be added after recording]
+- **File**: [Demo.webm](./Demo.webm) - Complete application demonstration
 
 ### ✅ Admin Credentials
 - **Username**: yuvasreega

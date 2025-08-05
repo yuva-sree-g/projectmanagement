@@ -47,7 +47,12 @@ const ProjectInlineEdit = ({ project, onClose, onSave }) => {
 
     setLoading(true);
     try {
-      await dispatch(updateProject({ id: project.id, ...formData })).unwrap();
+      const projectData = {
+        ...formData,
+        start_date: formData.start_date ? new Date(formData.start_date).toISOString() : null,
+        end_date: formData.end_date ? new Date(formData.end_date).toISOString() : null,
+      };
+      await dispatch(updateProject({ id: project.id, projectData })).unwrap();
       onSave && onSave();
       onClose();
     } catch (error) {
