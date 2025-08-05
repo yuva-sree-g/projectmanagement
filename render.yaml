@@ -1,4 +1,10 @@
 services:
+  - type: pserv
+    name: project-dashboard-db
+    env: postgres
+    plan: free
+    ipAllowList: []
+    
   - type: web
     name: project-dashboard-backend
     env: python
@@ -6,7 +12,9 @@ services:
     startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: DATABASE_URL
-        value: postgresql://projectuser:aroQ42eH1dJ75YHHejJb1On3dTHCxYQ3@dpg-d27ruomuk2gs73ejfkj0-a.oregon-postgres.render.com/project_dashboard_67v7
+        fromDatabase:
+          name: project-dashboard-db
+          property: connectionString
       - key: SECRET_KEY
         generateValue: true
       - key: ALGORITHM
