@@ -14,4 +14,12 @@ services:
       - key: ACCESS_TOKEN_EXPIRE_MINUTES
         value: "30"
       - key: CORS_ORIGINS
-        value: "*" 
+        value: "*"
+      - key: CARGO_HOME
+        value: /tmp/cargo
+      - key: RUSTUP_HOME
+        value: /tmp/rustup
+      - key: CARGO_TARGET_DIR
+        value: /tmp/target
+      - key: CARGO_REGISTRY_CACHE
+        value: /tmp/cargo/registry/cache 
