@@ -17,8 +17,8 @@ SECRET_KEY = os.getenv("SECRET_KEY", "your-secret-key-here")
 ALGORITHM = os.getenv("ALGORITHM", "HS256")
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "30"))
 
-# Password hashing
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+# Password hashing - using sha256_crypt instead of bcrypt to avoid Rust dependencies
+pwd_context = CryptContext(schemes=["sha256_crypt"], deprecated="auto")
 
 # Security scheme
 security = HTTPBearer()
