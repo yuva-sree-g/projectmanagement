@@ -1,21 +1,12 @@
 services:
-  - type: pserv
-    name: project-dashboard-db
-    env: postgres
-    plan: free
-    ipAllowList: []
-    
   - type: web
     name: project-dashboard-backend
     env: python
-    plan: free
-    buildCommand: chmod +x backend/build.sh && ./backend/build.sh
+    buildCommand: pip install -r backend/requirements.txt
     startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: project-dashboard-db
-          property: connectionString
+        value: postgresql://projectuser:aroQ42eH1dJ75YHHejJb1On3dTHCxYQ3@dpg-d27ruomuk2gs73ejfkj0-a.oregon-postgres.render.com/project_dashboard_67v7
       - key: SECRET_KEY
         generateValue: true
       - key: ALGORITHM
@@ -23,6 +14,4 @@ services:
       - key: ACCESS_TOKEN_EXPIRE_MINUTES
         value: "30"
       - key: CORS_ORIGINS
-        value: "*"
-      - key: ENVIRONMENT
-        value: "production" 
+        value: "*" 
