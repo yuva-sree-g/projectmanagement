@@ -2,9 +2,11 @@ services:
   - type: web
     name: project-dashboard-backend
     env: python
-    buildCommand: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && source /tmp/cargo/env && export CARGO_HOME=/tmp/cargo && export RUSTUP_HOME=/tmp/rustup && export CARGO_TARGET_DIR=/tmp/target && export CARGO_REGISTRY_CACHE=/tmp/cargo/registry/cache && mkdir -p $CARGO_HOME $RUSTUP_HOME $CARGO_TARGET_DIR $CARGO_REGISTRY_CACHE && pip install -r backend/requirements.txt
-    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    buildCommand: pip install --upgrade pip setuptools wheel && pip install --no-cache-dir -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
       - key: DATABASE_URL
         value: postgresql://projectuser:aroQ42eH1dJ75YHHejJb1On3dTHCxYQ3@dpg-d27ruomuk2gs73ejfkj0-a.oregon-postgres.render.com/project_dashboard_67v7
       - key: SECRET_KEY
